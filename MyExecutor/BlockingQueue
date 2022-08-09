@@ -5,6 +5,7 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 import lombok.extern.slf4j.Slf4j;
 /**
+ *存放的任务阻塞队列
  * @author DAHUANG
  * @date 2022/8/9
  */
