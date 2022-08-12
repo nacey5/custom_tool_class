@@ -1,0 +1,29 @@
+/**
+ * @author DAHUANG
+ * @date 2022/8/12
+ * 测试类,如果需要,请参考这个测试类
+ */
+public class TestCoder {
+
+    public static void main(String[] args) {
+
+        String password = "123456";
+        System.out.println("明文密码：" + password);
+
+        String salt = PasswordUtils.getSalt();
+        System.out.println("随机盐值：" + salt);
+
+
+        String encodePassword = PasswordUtils.encode(password, salt);
+        System.out.println("密文密码：" + encodePassword);
+
+        password = "123456";
+
+        if (PasswordUtils.matches(salt, password, encodePassword)) {
+            System.out.println("密码相同");
+        } else {
+            System.out.println("密码不同");
+        }
+
+    }
+}
