@@ -1,7 +1,7 @@
 public class StreamTest {
         List<String> listForExample = Arrays.asList("a", "b", "c");
         int[] arrayForExample={1,3,5,6,8};
-  
+        List<Integer> listForExampleInteger = Arrays.asList(7, 6, 9, 3, 8, 2, 1);
   
         // 创建一个顺序流
         Stream<String> stream = listForExample.stream();
@@ -17,4 +17,14 @@ public class StreamTest {
         Stream<Double> stream3 = Stream.generate(Math::random).limit(3);
         //除了直接创建并行流，还可以通过parallel()把顺序流转换成并行流
         listForExample.stream().parallel().filter(x-> x.equals("tt")).findFirst();
+        
+       // 遍历输出符合条件的元素
+        listForExampleInteger.stream().filter(x -> x > 6).forEach(System.out::println);
+        // 匹配第一个
+        Optional<Integer> findFirst = listForExampleInteger.stream().filter(x -> x > 6).findFirst();
+        // 匹配任意（适用于并行流）
+        Optional<Integer> findAny = listForExampleInteger.parallelStream().filter(x -> x > 6).findAny();
+        // 是否包含符合特定条件的元素
+        boolean anyMatch = listForExampleInteger.stream().anyMatch(x -> x > 6);
+        
 }
