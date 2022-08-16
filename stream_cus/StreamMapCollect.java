@@ -15,8 +15,19 @@ private static void test1() {
         //获取员工最大值
         Optional<Person> max = personList.stream().max(Comparator.comparingInt(Person::getSalary));
         Integer maxSalary=max.get().getSalary());
-	
+    }
 
+ private static void test6() {
+        String[] strArr = { "abcd", "bcdd", "defde", "fTr" };
+        //每个元素大写
+        List<String> strList = Arrays.stream(strArr).map(String::toUpperCase).collect(Collectors.toList());
+
+        List<Integer> intList = Arrays.asList(1, 3, 5, 7, 9, 11);
+        //每个元素+3
+        List<Integer> intListNew = intList.stream().map(x -> x + 3).collect(Collectors.toList());
+
+        System.out.println("每个元素大写：" + strList);
+        System.out.println("每个元素+3：" + intListNew);
     }
 
 /**
