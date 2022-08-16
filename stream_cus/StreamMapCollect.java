@@ -12,6 +12,11 @@ private static void test1() {
         personList.add(new Person("Owen", 9500, 5,"male", "New York"));
         personList.add(new Person("Alisa", 7900, 6,"female", "New York"));
         List<String> collect = personList.stream().filter(x -> x.getSalary() > 8000).map((person -> person.getName())).collect(Collectors.toList());
+        //获取员工最大值
+        Optional<Person> max = personList.stream().max(Comparator.comparingInt(Person::getSalary));
+        Integer maxSalary=max.get().getSalary());
+	
+
     }
 
 /**
