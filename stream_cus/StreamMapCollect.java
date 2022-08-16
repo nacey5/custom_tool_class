@@ -1,7 +1,8 @@
-
-
-
-
+/**
+ * 使用stream流通过filter生成符合条件的列表
+ * @author DAHUANG
+ * @date 2022/8/16
+ */
 private static void test1() {
         List<Person> personList = new ArrayList<Person>();
         personList.add(new Person("Tom", 8900,1 ,"male", "New York"));
