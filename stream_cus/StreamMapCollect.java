@@ -43,6 +43,18 @@ private static void test1() {
         //转成map
         Map<?, Person> map = personList.stream().filter(p -> p.getSalary() > 8000)
                 .collect(Collectors.toMap(Person::getName, p -> p));
+        
+        // 求总数
+	Long count = personList.stream().collect(Collectors.counting());
+	// 求平均工资
+	Double average = personList.stream().collect(Collectors.averagingDouble(Person::getSalary));
+	// 求最高工资
+	Optional<Integer> max = personList.stream().map(Person::getSalary).collect(Collectors.maxBy(Integer::compare));
+	// 求工资之和
+	Integer sum = personList.stream().collect(Collectors.summingInt(Person::getSalary));
+	// 一次性统计所有信息
+	DoubleSummaryStatistics collect = personList.stream().collect(Collectors.summarizingDouble(Person::getSalary));
+
     }
 
 
