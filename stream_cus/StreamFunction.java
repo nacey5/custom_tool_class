@@ -37,6 +37,19 @@ public class StreamFunction{
         //每个元素+3
         List<Integer> intListNew = intList.stream().map(x -> x + 3).collect(Collectors.toList());
     }
+    
+    private static void test8() {
+        //处理前的集合
+        List<String> list = Arrays.asList("m,k,l,a", "1,3,5,7");
+        //通过内部处理得到的处理后的集合
+        List<String> listNew = list.stream().flatMap(s -> {
+            // 将每个元素转换成一个stream
+            String[] split = s.split(",");
+            Stream<String> s2 = Arrays.stream(split);
+            return s2;
+        }).collect(Collectors.toList());
+
+    }
   
     
 }
