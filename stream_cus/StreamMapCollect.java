@@ -40,6 +40,9 @@ private static void test1() {
         // 求最高工资方式2：
         Integer maxSalary2 = personList.stream().reduce(0, (max, p) -> max > p.getSalary() ? max : p.getSalary(),
                 (max1, max2) -> max1 > max2 ? max1 : max2);
+        //转成map
+        Map<?, Person> map = personList.stream().filter(p -> p.getSalary() > 8000)
+                .collect(Collectors.toMap(Person::getName, p -> p));
     }
 
 
