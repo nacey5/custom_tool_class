@@ -15,6 +15,17 @@ private static void test1() {
         //获取员工最大值
         Optional<Person> max = personList.stream().max(Comparator.comparingInt(Person::getSalary));
         Integer maxSalary=max.get().getSalary());
+        //不改变原来集合的方式进行数据修改
+        List<Person> personListNew = personList.stream().map(person -> {
+            Person personNew = new Person(person.getName(), 0, 0, null, null);
+            personNew.setSalary(person.getSalary() + 10000);
+            return personNew;
+        }).collect(Collectors.toList());
+        //改变原来集合的方式进行数据修改
+        List<Person> personListNew2 = personList.stream().map(person -> {
+            person.setSalary(person.getSalary() + 10000);
+            return person;
+        }).collect(Collectors.toList());
     }
 
 
