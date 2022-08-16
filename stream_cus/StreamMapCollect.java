@@ -54,6 +54,12 @@ private static void test1() {
 	Integer sum = personList.stream().collect(Collectors.summingInt(Person::getSalary));
 	// 一次性统计所有信息
 	DoubleSummaryStatistics collect = personList.stream().collect(Collectors.summarizingDouble(Person::getSalary));
+	// 将员工按薪资是否高于8000分组
+        Map<Boolean, List<Person>> part = personList.stream().collect(Collectors.partitioningBy(x -> x.getSalary() > 8000));
+        // 将员工按性别分组
+        Map<String, List<Person>> group = personList.stream().collect(Collectors.groupingBy(Person::getSex));
+        // 将员工先按性别分组，再按地区分组
+        Map<String, Map<String, List<Person>>> group2 = personList.stream().collect(Collectors.groupingBy(Person::getSex, Collectors.groupingBy(Person::getArea)));
 
     }
 
