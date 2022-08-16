@@ -27,6 +27,17 @@ public class StreamFunction{
         //自定义排序的最大值
         Integer maxTwo = max2.get();
     }
+    
+     private static void test6() {
+        String[] strArr = { "abcd", "bcdd", "defde", "fTr" };
+        //每个元素大写
+        List<String> strList = Arrays.stream(strArr).map(String::toUpperCase).collect(Collectors.toList());
+
+        List<Integer> intList = Arrays.asList(1, 3, 5, 7, 9, 11);
+        //每个元素+3
+        List<Integer> intListNew = intList.stream().map(x -> x + 3).collect(Collectors.toList());
+    }
   
+    
 }
 
