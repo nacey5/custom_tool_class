@@ -51,6 +51,13 @@ public class StreamFunction{
 
     }
   
+    private static void test11() {
+        List<Integer> list = Arrays.asList(1, 6, 3, 4, 6, 7, 9, 6, 20);
+        //收集成list
+        List<Integer> listNew = list.stream().filter(x -> x % 2 == 0).collect(Collectors.toList());
+        //收集成Set
+        Set<Integer> set = list.stream().filter(x -> x % 2 == 0).collect(Collectors.toSet());
+    }
     
 }
 
