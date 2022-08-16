@@ -26,6 +26,20 @@ private static void test1() {
             person.setSalary(person.getSalary() + 10000);
             return person;
         }).collect(Collectors.toList());
+         // 求工资之和方式1：
+        Optional<Integer> sumSalary = personList.stream().map(Person::getSalary).reduce(Integer::sum);
+        // 求工资之和方式2：
+        Integer sumSalary2 = personList.stream().reduce(0, (sum, p) -> sum += p.getSalary(),
+                (sum1, sum2) -> sum1 + sum2);
+        // 求工资之和方式3：
+        Integer sumSalary3 = personList.stream().reduce(0, (sum, p) -> sum += p.getSalary(), Integer::sum);
+
+        // 求最高工资方式1：
+        Integer maxSalary = personList.stream().reduce(0, (max, p) -> max > p.getSalary() ? max : p.getSalary(),
+                Integer::max);
+        // 求最高工资方式2：
+        Integer maxSalary2 = personList.stream().reduce(0, (max, p) -> max > p.getSalary() ? max : p.getSalary(),
+                (max1, max2) -> max1 > max2 ? max1 : max2);
     }
 
 
