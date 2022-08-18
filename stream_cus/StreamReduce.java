@@ -1,5 +1,5 @@
 /**
- * reduce方法
+ * reduce方法：主要针对stream特性中reduce进行举例
  * @author DAHUANG
  * @date 2022/8/16
  */
